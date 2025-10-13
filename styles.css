@@ -61,6 +61,17 @@
   }
 }
 
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 /* Animation classes with ultra-smooth timing */
 .animate-intro-bottom {
   animation: slideInFromBottom 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -76,6 +87,10 @@
 
 .animate-intro-scale {
   animation: fadeInScale 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fade-in-left {
+  animation: fadeInLeft 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 .animate-delay-1 {

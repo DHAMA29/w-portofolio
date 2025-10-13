@@ -30,6 +30,13 @@ const createIntersectionObserver = () => {
               animateSkillBars();
             }, 800); // Wait for intro animation to complete
           }
+
+          // If this is the experience section, trigger timeline animations
+          if (sectionId === "experience") {
+            setTimeout(() => {
+              animateExperienceItems();
+            }, 600);
+          }
         }
       }
     });
@@ -86,10 +93,54 @@ function animateSkillBars() {
   });
 }
 
+// Experience timeline animation
+function animateExperienceItems() {
+  const experienceItems = document.querySelectorAll('#experience .animate-fade-in-left');
+  
+  experienceItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.style.opacity = '1';
+      item.style.transform = 'translateX(0)';
+    }, index * 200);
+  });
+}
+
 // Initialize page intro animations when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   createIntersectionObserver();
+  initializeSmoothScroll();
 });
+
+// Smooth scroll for navigation links
+function initializeSmoothScroll() {
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      
+      if (targetSection) {
+        const headerOffset = 80; // Account for fixed header
+        const elementPosition = targetSection.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+      }
+    });
+  });
+}
 
 // Mobile navigation toggle
 const mobileMenuBtn = document.getElementById("mobile-menu-btn");
