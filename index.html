@@ -6,7 +6,7 @@
     <title>Dhama Shidqi Putra — Portfolio</title>
     <meta
       name="description"
-      content="Dhama — AI & Flutter developer | Dart, Flutter, OpenCV, UI/UX. From Yogyakarta, Indonesia."
+      content="Dhama — AI & Flutter Developer | Dart, Flutter, OpenCV, UI/UX. From Yogyakarta, Indonesia."
     />
 
     <!-- Tailwind CDN -->
@@ -41,7 +41,81 @@
     />
 
     <link rel="stylesheet" href="styles.css" />
-    <link rel="icon" href="favicon.png" type="image/png">
+
+    <!-- Professional Tech Stack Styling -->
+    <style>
+      /* Professional Tech Stack */
+      .skill-item .text-center p {
+        position: relative;
+        transition: all 0.3s ease;
+      }
+
+      .skill-item:hover .text-center p {
+        color: #a855f7;
+        transform: translateY(-2px);
+      }
+
+      /* Clean separator styling */
+      .skill-item .text-center p::before {
+        content: "";
+        position: absolute;
+        top: -8px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(168, 85, 247, 0.3),
+          transparent
+        );
+        transition: all 0.3s ease;
+      }
+
+      .skill-item:hover .text-center p::before {
+        width: 60px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(168, 85, 247, 0.6),
+          transparent
+        );
+      }
+
+      /* Alternative: Simple underline style */
+      .tech-underline {
+        position: relative;
+        display: inline-block;
+        padding-bottom: 4px;
+      }
+
+      .tech-underline::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(168, 85, 247, 0.4),
+          transparent
+        );
+        transition: all 0.3s ease;
+      }
+
+      .skill-item:hover .tech-underline::after {
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(168, 85, 247, 0.8),
+          transparent
+        );
+        height: 2px;
+      }
+    </style>
   </head>
   <body class="bg-black text-white antialiased overflow-x-hidden">
     <!-- Navigation -->
@@ -55,37 +129,32 @@
     >
       <div class="max-w-6xl mx-auto px-6 py-4">
         <div class="flex items-center justify-between">
-          <div class="text-xl font-bold">
+          <a href="#hero" class="text-xl font-bold">
             <span class="text-white">Dhama</span
             ><span class="text-purple-400">.</span>
-          </div>
+          </a>
 
           <div class="hidden md:flex items-center space-x-8">
             <a
-              href="#home"
-              class="nav-link text-white/80 hover:text-purple-400 transition-all duration-300 relative hover:scale-105"
-              >Home</a
-            >
-            <a
               href="#about"
-              class="nav-link text-white/80 hover:text-purple-400 transition-all duration-300 relative hover:scale-105"
+              class="nav-link text-white/80 hover:text-purple-400 transition-colors"
               >About</a
             >
             <a
-              href="#experience"
-              class="nav-link text-white/80 hover:text-purple-400 transition-all duration-300 relative hover:scale-105"
-              >Experience</a
-            >
-            <a
               href="#skills"
-              class="nav-link text-white/80 hover:text-purple-400 transition-all duration-300 relative hover:scale-105"
+              class="nav-link text-white/80 hover:text-purple-400 transition-colors"
               >Skills</a
             >
             <a
-              href="#projects"
-              class="nav-link text-white/80 hover:text-purple-400 transition-all duration-300 relative hover:scale-105"
-              >Projects</a
+              href="#experience"
+              class="nav-link text-white/80 hover:text-purple-400 transition-colors"
+              >Experience</a
             >
+            <!-- <a
+              href="#projects"
+              class="nav-link text-white/80 hover:text-purple-400 transition-colors"
+              >Project</a
+            > -->
             <a
               href="#contact"
               class="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
@@ -117,11 +186,10 @@
         class="md:hidden hidden bg-black/95 backdrop-blur-xl border-t border-gray-800/30"
       >
         <div class="px-6 py-4 space-y-4">
-          <a href="#home" class="block nav-link">Home</a>
           <a href="#about" class="block nav-link">About</a>
-          <a href="#experience" class="block nav-link">Experience</a>
           <a href="#skills" class="block nav-link">Skills</a>
-          <a href="#projects" class="block nav-link">Projects</a>
+          <a href="#experience" class="block nav-link">Experience</a>
+          <!-- <a href="#projects" class="block nav-link">Project</a> -->
           <a
             href="#contact"
             class="block px-4 py-2 bg-purple-600 text-white rounded-lg"
@@ -133,7 +201,7 @@
 
     <!-- Hero Section -->
     <section
-      id="home"
+      id="hero"
       class="min-h-screen flex items-center relative overflow-hidden bg-black"
     >
       <!-- Minimalist Background -->
@@ -146,39 +214,39 @@
         ></div>
       </div>
 
-      <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20 relative z-10">
-        <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center min-h-[60vh] md:min-h-[80vh]">
+      <div class="max-w-6xl mx-auto px-6 py-20 relative z-10">
+        <div class="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
           <!-- Left Content -->
           <div class="space-y-8 section-hidden animate-intro-left">
             <div class="space-y-6">
               <div class="space-y-3">
                 <!-- Fixed layout: "I am" above, typing animation below -->
-                <div class="text-xl md:text-2xl lg:text-3xl text-gray-300 font-medium">
+                <div class="text-2xl lg:text-3xl text-gray-300 font-medium">
                   I am
                 </div>
-                <h1 class="text-3xl md:text-5xl lg:text-7xl font-bold leading-tight">
+                <h1 class="text-5xl lg:text-7xl font-bold leading-tight">
                   <span id="typing-text" class="text-purple-400"></span>
                 </h1>
               </div>
 
-              <p class="text-lg md:text-xl text-gray-300 font-medium">
+              <p class="text-xl text-gray-300 font-medium">
                 AI & Flutter Developer
               </p>
             </div>
 
             <div class="space-y-8 max-w-2xl">
-              <p class="text-base md:text-lg text-gray-400 leading-relaxed">
-                Saya adalah seseorang yang memiliki minat mendalam dalam desain
-                layout. Saya berpikir menyajikan desain yang menarik adalah hal
-                yang menjadi perhatian dalam mengembangkan branding bisnis di
-                dunia digital, visual desain, dan detail dekorasi visual.
+              <p class="text-gray-400 text-lg leading-relaxed">
+                Saya seorang student dengan minat mendalam pada pemrograman, AI,
+                dan Web3. Saya meyakini bahwa teknologi merupakan fondasi masa
+                depan, dan saya ingin berperan dalam menciptakan inovasi di
+                dunia digital.
               </p>
 
-              <div class="flex flex-col sm:flex-row gap-4">
+              <div class="flex flex-wrap gap-4">
                 <a
                   href="https://github.com/DHAMA29"
                   target="_blank"
-                  class="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-all duration-300 flex items-center justify-center gap-2"
+                  class="px-6 py-3 bg-purple-600 text-white rounded-lg font-medium hover:bg-purple-700 transition-all duration-300 flex items-center gap-2"
                 >
                   <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path
@@ -189,7 +257,7 @@
                 </a>
                 <a
                   href="#about"
-                  class="px-6 py-3 border border-gray-600 text-gray-300 rounded-lg font-medium hover:border-purple-500 hover:text-purple-400 transition-all duration-300 flex items-center justify-center gap-2"
+                  class="px-6 py-3 border border-gray-600 text-gray-300 rounded-lg font-medium hover:border-purple-500 hover:text-purple-400 transition-all duration-300 flex items-center gap-2"
                 >
                   <svg
                     class="w-5 h-5"
@@ -204,7 +272,7 @@
                       d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
-                  More About Me
+                  About Me
                 </a>
               </div>
             </div>
@@ -274,6 +342,17 @@
                   </svg>
                 </a>
                 <a
+                  href="https://instagram.com/dhamzk_"
+                  target="_blank"
+                  class="w-11 h-11 bg-gray-800/50 hover:bg-pink-600 text-gray-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 backdrop-blur-sm border border-gray-700/30 hover:border-pink-500/50"
+                >
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                </a>
+                <a
                   href="mailto:dhamzk026@gmail.com"
                   class="w-11 h-11 bg-gray-800/50 hover:bg-purple-600 text-gray-400 hover:text-white rounded-xl flex items-center justify-center transition-all duration-300 backdrop-blur-sm border border-gray-700/30 hover:border-purple-500/50"
                 >
@@ -314,6 +393,17 @@
                 </svg>
               </a>
               <a
+                href="https://instagram.com/dhamzk_"
+                target="_blank"
+                class="w-10 h-10 bg-gray-800 hover:bg-pink-600 text-gray-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  />
+                </svg>
+              </a>
+              <a
                 href="mailto:dhamzk026@gmail.com"
                 class="w-10 h-10 bg-gray-800 hover:bg-purple-600 text-gray-400 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
               >
@@ -330,10 +420,10 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-12 md:py-20 relative bg-black">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6">
+    <section id="about" class="py-20 relative bg-black">
+      <div class="max-w-4xl mx-auto px-6">
         <div class="mb-16 section-hidden animate-intro-bottom">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
             About <span class="text-purple-400">Me</span>
           </h2>
           <p class="text-gray-400 text-lg max-w-2xl">
@@ -356,20 +446,20 @@
 
               <p class="leading-relaxed">
                 Selama menempuh pendidikan di SMKN 2 Pengasih dengan jurusan
-               Teknik Komputer Jaringan, saya telah mengembangkan berbagai
+                Teknik Komputer Jaringan, saya telah mengembangkan berbagai
                 proyek yang menggabungkan kreativitas dengan teknologi terkini
                 untuk menciptakan solusi yang bermanfaat.
               </p>
             </div>
 
             <div class="grid grid-cols-2 gap-6 mt-8">
-              <div class="text-center p-4 rounded-lg bg-gray-900/30 border border-gray-800/50">
-                <div class="text-2xl font-bold text-purple-400 mb-1">15+</div>
-                <div class="text-gray-400 text-sm">Projects Completed</div>
+              <div class="text-center p-4">
+                <div class="text-3xl font-bold text-purple-400">15+</div>
+                <div class="text-gray-500">Projects Completed</div>
               </div>
-              <div class="text-center p-4 rounded-lg bg-gray-900/30 border border-gray-800/50">
-                <div class="text-2xl font-bold text-purple-400 mb-1">3+</div>
-                <div class="text-gray-400 text-sm">Years Experience</div>
+              <div class="text-center p-4">
+                <div class="text-3xl font-bold text-purple-400">3+</div>
+                <div class="text-gray-500">Years Experience</div>
               </div>
             </div>
           </div>
@@ -643,305 +733,346 @@
       </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-12 md:py-20 relative bg-black">
-      <div class="max-w-4xl mx-auto px-4 sm:px-6">
-        <div class="mb-16 section-hidden animate-intro-bottom">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white text-center">
-            My <span class="text-purple-400">Experience</span>
+    <!-- Skills Section - Modern Clean Design -->
+    <section id="skills" class="py-20 relative bg-black">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-16 section-hidden animate-intro-bottom">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+            <span class="text-purple-400">Skills</span> Overview
           </h2>
-          <div class="w-16 h-0.5 bg-purple-500 mx-auto mb-6"></div>
-          <p class="text-gray-400 text-base max-w-2xl mx-auto text-center">
-            Professional experience and achievements
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Keahlian khusus dalam teknologi pengembangan modern dan metodologi
           </p>
         </div>
 
-        <!-- Experience Timeline -->
-        <div class="space-y-12 section-hidden animate-intro-left animate-delay-1">
-          <!-- Current Experience - PKL UGM -->
-          <div class="relative pl-6 opacity-0 translate-x-4 animate-fade-in-left" style="animation-delay: 0.2s;">
-            <!-- Timeline Line -->
-            <div class="absolute left-0 top-0 w-0.5 h-full bg-gray-800"></div>
-            <!-- Timeline Dot -->
-            <div class="absolute left-0 top-1 w-2 h-2 bg-purple-500 rounded-full -translate-x-0.75 animate-pulse"></div>
-            
-            <div class="pb-2">
-              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                <h3 class="text-lg font-semibold text-white">
-                  Praktek Kerja Lapangan - IT Department
-                </h3>
-                <span class="text-sm text-purple-400 mt-1 sm:mt-0 font-medium">
-                  Oktober 2025 - Present
-                </span>
-              </div>
-              <p class="text-gray-300 font-medium mb-2">UGM FISIPOL</p>
-              <p class="text-gray-500 text-sm leading-relaxed">
-                Gaining hands-on experience in IT operations and system administration within academic environment.
-              </p>
-            </div>
-          </div>
-
-          <!-- LKS Competition -->
-          <div class="relative pl-6 opacity-0 translate-x-4 animate-fade-in-left" style="animation-delay: 0.4s;">
-            <!-- Timeline Dot -->
-            <div class="absolute left-0 top-1 w-2 h-2 bg-gray-600 rounded-full -translate-x-0.75"></div>
-            
-            <div class="pb-2">
-              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                <h3 class="text-lg font-semibold text-white">
-                  Lomba Kompetensi Siswa (LKS)
-                </h3>
-                <span class="text-sm text-gray-400 mt-1 sm:mt-0">
-                  Tingkat Provinsi
-                </span>
-              </div>
-              <p class="text-gray-300 font-medium mb-2">Provincial Level Competition</p>
-              <p class="text-gray-500 text-sm leading-relaxed">
-                Demonstrated technical skills and problem-solving abilities in technology competition.
-              </p>
-            </div>
-          </div>
-
-          <!-- Fiction Writing Competition -->
-          <div class="relative pl-6 opacity-0 translate-x-4 animate-fade-in-left" style="animation-delay: 0.6s;">
-            <!-- Timeline Dot -->
-            <div class="absolute left-0 top-1 w-2 h-2 bg-gray-600 rounded-full -translate-x-0.75"></div>
-            
-            <div class="pb-2">
-              <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-3">
-                <h3 class="text-lg font-semibold text-white">
-                  Lomba Fiksi Tingkat Provinsi
-                </h3>
-                <span class="text-sm text-gray-400 mt-1 sm:mt-0">
-                  Tingkat Provinsi
-                </span>
-              </div>
-              <p class="text-gray-300 font-medium mb-2">Fiction Writing Competition</p>
-              <p class="text-gray-500 text-sm leading-relaxed">
-                Enhanced creative writing skills and storytelling abilities through provincial competition.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section - Professional Design -->
-    <section id="skills" class="py-12 md:py-20 relative bg-black">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-16 section-hidden animate-intro-bottom">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-            My Professional <br />
-            <span class="text-purple-400">Skills</span>
-          </h2>
-          <div
-            class="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mb-8"
-          ></div>
-        </div>
-
-        <!-- Skills Cards with Improved Container -->
+        <!-- Skills Grid - Minimal Clean Layout -->
         <div
-          class="relative section-hidden animate-intro-scale animate-delay-1"
+          class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 section-hidden animate-intro-bottom animate-delay-1"
         >
-          <!-- Navigation Arrows -->
-          <button
-            id="skills-prev"
-            class="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-800/80 hover:bg-purple-600 text-white rounded-full flex items-center justify-center transition-all duration-300 z-20 backdrop-blur-sm shadow-lg"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          <button
-            id="skills-next"
-            class="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 bg-gray-800/80 hover:bg-purple-600 text-white rounded-full flex items-center justify-center transition-all duration-300 z-20 backdrop-blur-sm shadow-lg"
-          >
-            <svg
-              class="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-
-          <!-- Skills Container - Improved Layout -->
-          <div class="skills-container px-8 py-4">
-            <div
-              class="flex flex-col md:flex-row gap-6 md:gap-8 items-center justify-center min-h-[400px] md:min-h-[500px]"
-            >
-              <!-- Mobile App Design -->
+          <!-- Mobile Development -->
+          <div class="skill-item group text-center">
+            <div class="mb-6">
               <div
-                class="skill-card w-full md:w-80 transition-all duration-700 ease-out"
-                data-skill="0"
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
               >
-                <div class="skill-service-card group cursor-pointer h-full">
-                  <div
-                    class="bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-3xl p-6 md:p-8 text-center border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 backdrop-blur-sm h-full flex flex-col justify-between"
-                  >
-                    <!-- Image Container -->
-                    <div class="flex-shrink-0 mb-8">
-                      <div
-                        class="w-32 h-32 mx-auto bg-gradient-to-br from-purple-600/15 to-blue-600/15 rounded-3xl overflow-hidden transition-all duration-500 group-hover:scale-105 shadow-lg"
-                      >
-                        <img
-                          src="mobile.jpg"
-                          alt="Mobile App Design"
-                          class="w-full h-full object-cover rounded-3xl transition-all duration-500"
-                        />
-                      </div>
-                    </div>
-
-                    <div class="flex-grow flex flex-col justify-center">
-                      <h3
-                        class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 group-hover:text-purple-400 transition-colors duration-300"
-                      >
-                        Mobile App Design
-                      </h3>
-                      <p
-                        class="text-sm md:text-base text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-300"
-                      >
-                        Creating intuitive and engaging mobile applications with
-                        modern UI/UX principles.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <img
+                  src="images/mobile-dev.png"
+                  alt="Mobile Development"
+                  class="w-full h-full object-contain"
+                />
               </div>
-
-              <!-- Web Development - Featured -->
-              <div
-                class="skill-card featured w-full md:w-80 transition-all duration-700 ease-out"
-                data-skill="1"
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors"
               >
-                <div class="skill-service-card group cursor-pointer h-full">
-                  <div
-                    class="bg-gradient-to-br from-purple-900/70 to-blue-900/70 rounded-3xl p-6 md:p-8 lg:p-10 text-center border-2 border-purple-500/80 shadow-2xl shadow-purple-500/30 backdrop-blur-md h-full flex flex-col justify-between md:transform md:scale-105 lg:scale-110"
-                  >
-                    <!-- Image Container -->
-                    <div class="flex-shrink-0 mb-8 relative">
-                      <div
-                        class="w-28 h-28 md:w-32 lg:w-36 md:h-32 lg:h-36 mx-auto bg-gradient-to-br from-purple-600/25 to-blue-600/25 rounded-3xl overflow-hidden shadow-xl transition-all duration-500 group-hover:scale-105"
-                      >
-                        <img
-                          src="web.jpg"
-                          alt="Web Development"
-                          class="w-full h-full object-cover rounded-3xl"
-                        />
-                      </div>
-                      <!-- Enhanced Badge -->
-                      <div
-                        class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm px-4 py-2 rounded-full shadow-lg"
-                      >
-                        ✨ Featured
-                      </div>
-                    </div>
-
-                    <div class="flex-grow flex flex-col justify-center">
-                      <h3
-                        class="text-xl md:text-2xl font-bold text-white mb-3 md:mb-4"
-                      >
-                        Web Development
-                      </h3>
-                      <p
-                        class="text-sm md:text-base text-gray-200 leading-relaxed"
-                      >
-                        Building responsive and scalable web applications using
-                        modern frameworks and best practices.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- AI Prompter -->
-              <div
-                class="skill-card w-full md:w-80 transition-all duration-700 ease-out"
-                data-skill="2"
+                Pengembangan Mobile
+              </h3>
+              <p
+                class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors mb-6"
               >
-                <div class="skill-service-card group cursor-pointer h-full">
-                  <div
-                    class="bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-3xl p-6 md:p-8 text-center border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 backdrop-blur-sm h-full flex flex-col justify-between"
-                  >
-                    <!-- Image Container -->
-                    <div class="flex-shrink-0 mb-8">
-                      <div
-                        class="w-32 h-32 mx-auto bg-gradient-to-br from-purple-600/15 to-blue-600/15 rounded-3xl overflow-hidden transition-all duration-500 group-hover:scale-105 shadow-lg"
-                      >
-                        <img
-                          src="prompter.jpg"
-                          alt="AI Prompter"
-                          class="w-full h-full object-cover rounded-3xl transition-all duration-500"
-                        />
-                      </div>
-                    </div>
+                Aplikasi mobile cross-platform menggunakan Flutter dan Dart
+                dengan prinsip UI/UX modern
+              </p>
+            </div>
 
-                    <div class="flex-grow flex flex-col justify-center">
-                      <h3
-                        class="text-lg md:text-xl font-bold text-white mb-3 md:mb-4 group-hover:text-purple-400 transition-colors duration-300"
-                      >
-                        AI Prompter
-                      </h3>
-                      <p
-                        class="text-sm md:text-base text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-300"
-                      >
-                        Specialized in AI prompt engineering and integration for
-                        intelligent solutions.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <!-- Tech Stack -->
+            <div class="text-center">
+              <p class="text-gray-500 text-sm font-medium tech-underline">
+                Flutter • Dart • Firebase
+              </p>
             </div>
           </div>
-        </div>
 
-        <!-- Dots Indicator -->
-        <div class="flex justify-center space-x-2 mt-12">
-          <button
-            class="skill-dot w-3 h-3 bg-gray-600 rounded-full hover:bg-purple-500 transition-colors"
-            data-index="0"
-          ></button>
-          <button
-            class="skill-dot w-3 h-3 bg-purple-500 rounded-full"
-            data-index="1"
-          ></button>
-          <button
-            class="skill-dot w-3 h-3 bg-gray-600 rounded-full hover:bg-purple-500 transition-colors"
-            data-index="2"
-          ></button>
+          <!-- Web Development -->
+          <div class="skill-item group text-center relative">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <img
+                  src="images/web-dev.png"
+                  alt="Web Development"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors"
+              >
+                Pengembangan Web
+              </h3>
+              <p
+                class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors mb-6"
+              >
+                Aplikasi web full-stack dengan framework modern dan desain
+                responsif
+              </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="text-center">
+              <p class="text-gray-500 text-sm font-medium tech-underline">
+                Laravel • JavaScript • React
+              </p>
+            </div>
+          </div>
+
+          <!-- AI Integration -->
+          <div class="skill-item group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <img
+                  src="images/ai.png"
+                  alt="AI Integration"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors"
+              >
+                Integrasi AI
+              </h3>
+              <p
+                class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors mb-6"
+              >
+                Integrasi Artificial Intelligence dan prompt engineering untuk
+                solusi cerdas
+              </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="text-center">
+              <p class="text-gray-500 text-sm font-medium tech-underline">
+                OpenAI • Python • TensorFlow
+              </p>
+            </div>
+          </div>
+
+          <!-- Backend Development -->
+          <div class="skill-item group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <img
+                  src="images/backend.png"
+                  alt="Backend Development"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors"
+              >
+                Pengembangan Backend
+              </h3>
+              <p
+                class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors mb-6"
+              >
+                Pengembangan server-side dengan API, microservices, dan
+                integrasi cloud
+              </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="text-center">
+              <p class="text-gray-500 text-sm font-medium tech-underline">
+                Laravel • Node.js • REST API
+              </p>
+            </div>
+          </div>
+
+          <!-- Database Management -->
+          <div class="skill-item group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <img
+                  src="images/database-management.png"
+                  alt="Database Management"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors"
+              >
+                Manajemen Database
+              </h3>
+              <p
+                class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors mb-6"
+              >
+                Desain database, optimasi, dan manajemen untuk aplikasi scalable
+              </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="text-center">
+              <p class="text-gray-500 text-sm font-medium tech-underline">
+                MySQL • MongoDB • Firebase
+              </p>
+            </div>
+          </div>
+
+          <!-- DevOps & Tools -->
+          <div class="skill-item group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <img
+                  src="images/devops.png"
+                  alt="DevOps & Tools"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors"
+              >
+                DevOps & Tools
+              </h3>
+              <p
+                class="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors mb-6"
+              >
+                Tools pengembangan, version control, dan otomatisasi deployment
+              </p>
+            </div>
+
+            <!-- Tech Stack -->
+            <div class="text-center">
+              <p class="text-gray-500 text-sm font-medium tech-underline">
+                Git • Docker • AWS
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <!-- Projects Section -->
-    <section id="projects" class="py-12 md:py-20 relative bg-black">
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 relative bg-black">
       <div class="max-w-4xl mx-auto px-6">
         <div class="mb-16 section-hidden animate-intro-bottom">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-            Featured <span class="text-purple-400">Projects</span>
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+            <span class="text-purple-400">Experience</span>
           </h2>
           <p class="text-gray-400 text-lg max-w-2xl">
-            Showcase of my latest work in mobile development, AI implementation,
-            and web technologies
+            Perjalanan kompetisi dan pengalaman profesional yang membentuk
+            kemampuan teknologi saya
+          </p>
+        </div>
+
+        <div
+          class="space-y-12 section-hidden animate-intro-left animate-delay-1"
+        >
+          <!-- Experience 1 - IT Support -->
+          <div class="group">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-3 h-3 bg-purple-500 rounded-full mt-2"></div>
+                <div
+                  class="w-px bg-gradient-to-b from-purple-500 to-transparent h-16 ml-1 mt-2"
+                ></div>
+              </div>
+              <div class="flex-grow">
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3"
+                >
+                  <h3
+                    class="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors"
+                  >
+                    IT Support Intern
+                  </h3>
+                  <span class="text-purple-400 text-sm font-medium"
+                    >Oktober 2025 - Present</span
+                  >
+                </div>
+                <p class="text-gray-300 text-sm mb-2">UGM Fisipol</p>
+                <p class="text-gray-400 leading-relaxed">
+                  Bertanggung jawab dalam pemeliharaan sistem IT,
+                  troubleshooting hardware/software, dan mendukung operasional
+                  teknologi di lingkungan akademik Fakultas Ilmu Sosial dan
+                  Politik UGM.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 2 - FIKSI -->
+          <div class="group">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-3 h-3 bg-purple-500 rounded-full mt-2"></div>
+                <div
+                  class="w-px bg-gradient-to-b from-purple-500 to-transparent h-16 ml-1 mt-2"
+                ></div>
+              </div>
+              <div class="flex-grow">
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3"
+                >
+                  <h3
+                    class="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors"
+                  >
+                    Lomba FIKSI Provinsi DIY
+                  </h3>
+                  <span class="text-purple-400 text-sm font-medium">2025</span>
+                </div>
+                <p class="text-gray-300 text-sm mb-2">
+                  Rencana Usaha Teknologi Digital
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                  Mengikuti Festival Inovasi dan Kewirausahaan Siswa Indonesia
+                  dengan kategori Rencana Usaha Teknologi Digital, mengembangkan
+                  konsep bisnis yang menggabungkan inovasi teknologi dengan
+                  model kewirausahaan yang berkelanjutan.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience 3 - LKS -->
+          <div class="group">
+            <div class="flex items-start gap-6">
+              <div class="flex-shrink-0">
+                <div class="w-3 h-3 bg-purple-500 rounded-full mt-2"></div>
+              </div>
+              <div class="flex-grow">
+                <div
+                  class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3"
+                >
+                  <h3
+                    class="text-xl font-semibold text-white group-hover:text-purple-400 transition-colors"
+                  >
+                    Lomba LKS Provinsi DIY
+                  </h3>
+                  <span class="text-purple-400 text-sm font-medium">2025</span>
+                </div>
+                <p class="text-gray-300 text-sm mb-2">
+                  IT Software and Business Solution
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                  Berpartisipasi dalam Lomba Kompetensi Siswa tingkat Provinsi
+                  DIY bidang IT Software and Business Solution, mengembangkan
+                  solusi teknologi untuk kebutuhan bisnis dengan pendekatan
+                  sistematis dan inovatif.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative bg-black">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="mb-16 section-hidden animate-intro-bottom">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+            <span class="text-purple-400">Projects</span>
+          </h2>
+          <p class="text-gray-400 text-lg max-w-2xl">
+            Showcase karya terbaru saya dalam pengembangan mobile, implementasi
+            AI, dan teknologi web
           </p>
         </div>
 
@@ -1052,7 +1183,7 @@
               >
                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                   <path
-                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
                   />
                 </svg>
                 View Code
@@ -1075,7 +1206,7 @@
           >
             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path
-                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.30 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
               />
             </svg>
             View All Projects on GitHub
@@ -1085,288 +1216,182 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 relative">
-      <!-- Background with subtle gradient -->
-      <div
-        class="absolute inset-0 bg-gradient-to-br from-black via-gray-900/50 to-black"
-      ></div>
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(139,92,246,0.03)_0%,transparent_50%)]"
-      ></div>
-
-      <div class="relative max-w-7xl mx-auto px-6">
-        <div class="mb-16 section-hidden animate-intro-bottom text-center">
-          <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-            Get In <span class="text-purple-400">Touch</span>
-          </h2>
-          <p class="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            Ready to collaborate? Let's discuss your project and bring ideas to
-            life.
-          </p>
-          <div
-            class="w-24 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto mt-6 rounded-full"
-          ></div>
-        </div>
-
-        <div class="grid lg:grid-cols-2 gap-12 lg:gap-16">
-          <!-- Contact Info -->
-          <div class="section-hidden animate-intro-left animate-delay-1">
-            <div class="relative">
-              <!-- Subtle background -->
-              <div
-                class="absolute inset-0 bg-gray-900/30 rounded-2xl backdrop-blur-sm border border-gray-800/50"
-              ></div>
-              <div class="relative p-8">
-                <div class="mb-8">
-                  <h3 class="text-xl font-semibold text-white mb-3">
-                    Let's Connect
-                  </h3>
-                  <p class="text-gray-400 text-sm">
-                    Choose your preferred way to reach out
-                  </p>
-                </div>
-
-                <div class="space-y-4">
-                  <!-- Email -->
-                  <div
-                    class="group p-4 rounded-xl bg-gray-800/30 border border-gray-700/30 hover:border-purple-500/30 transition-all duration-300"
-                  >
-                    <div class="flex items-center space-x-4">
-                      <div
-                        class="flex-shrink-0 w-10 h-10 bg-purple-600/20 rounded-lg flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-5 h-5 text-purple-400"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                          ></path>
-                        </svg>
-                      </div>
-                      <div class="flex-1">
-                        <h4 class="text-white font-medium text-sm mb-1">
-                          Email
-                        </h4>
-                        <a
-                          href="mailto:dhamzk026@gmail.com"
-                          class="text-gray-300 text-sm hover:text-purple-400 transition-colors"
-                        >
-                          dhamzk026@gmail.com
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- LinkedIn -->
-                  <div
-                    class="group p-4 rounded-xl bg-gray-800/30 border border-gray-700/30 hover:border-blue-500/30 transition-all duration-300"
-                  >
-                    <div class="flex items-center space-x-4">
-                      <div
-                        class="flex-shrink-0 w-10 h-10 bg-blue-600/20 rounded-lg flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-5 h-5 text-blue-400"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                          />
-                        </svg>
-                      </div>
-                      <div class="flex-1">
-                        <h4 class="text-white font-medium text-sm mb-1">
-                          LinkedIn
-                        </h4>
-                        <a
-                          href="https://www.linkedin.com/in/dhama-shidqi-putra-12897232a"
-                          target="_blank"
-                          class="text-gray-300 text-sm hover:text-blue-400 transition-colors"
-                        >
-                          dhama-shidqi-putra
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-
-                  <!-- GitHub -->
-                  <div
-                    class="group p-4 rounded-xl bg-gray-800/30 border border-gray-700/30 hover:border-green-500/30 transition-all duration-300"
-                  >
-                    <div class="flex items-center space-x-4">
-                      <div
-                        class="flex-shrink-0 w-10 h-10 bg-green-600/20 rounded-lg flex items-center justify-center"
-                      >
-                        <svg
-                          class="w-5 h-5 text-green-400"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                          />
-                        </svg>
-                      </div>
-                      <div class="flex-1">
-                        <h4 class="text-white font-medium text-sm mb-1">
-                          GitHub
-                        </h4>
-                        <a
-                          href="https://github.com/DHAMA29"
-                          target="_blank"
-                          class="text-gray-300 text-sm hover:text-green-400 transition-colors"
-                        >
-                          @DHAMA29
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <!-- Quick Response Info -->
-                <div
-                  class="mt-6 p-4 bg-gray-800/20 rounded-xl border border-gray-700/30"
-                >
-                  <div class="flex items-center space-x-2 mb-2">
-                    <div
-                      class="w-2 h-2 bg-green-400 rounded-full animate-pulse"
-                    ></div>
-                    <span class="text-white font-medium text-sm"
-                      >Usually responds within 24 hours</span
-                    >
-                  </div>
-                  <p class="text-gray-400 text-xs">
-                    Available for freelance projects and collaboration
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Contact Form -->
-          <div class="section-hidden animate-intro-right animate-delay-2">
-            <div class="relative border border-gray-800/30 rounded-xl p-6 bg-gray-950/20">
-              <div class="mb-6">
-                <h3 class="text-lg font-semibold text-white mb-2">
-                  Send a Message
-                </h3>
-                <p class="text-gray-500 text-sm">
-                  Let's discuss your project
-                </p>
-              </div>
-
-                <form
-                  id="contactForm"
-                  class="space-y-4"
-                  onsubmit="return handleFormSubmit(event)"
-                >
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="form-group">
-                      <label
-                        for="name"
-                        class="block text-white font-medium mb-2 text-sm"
-                        >Name</label
-                      >
-                      <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        class="w-full px-3 py-3 bg-gray-800/30 border border-gray-700/50 rounded-lg text-white placeholder-gray-400 focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 transition-all duration-300 text-sm"
-                        placeholder="Your Name"
-                      />
-                    </div>
-                    <div class="form-group">
-                      <label
-                        for="email"
-                        class="block text-white font-medium mb-2 text-sm"
-                        >Email</label
-                      >
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        class="w-full px-3 py-3 bg-gray-800/30 border border-gray-700/50 rounded-lg text-white placeholder-gray-400 focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 transition-all duration-300 text-sm"
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label
-                      for="subject"
-                      class="block text-white font-medium mb-2 text-sm"
-                      >Subject</label
-                    >
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      required
-                      class="w-full px-3 py-3 bg-gray-800/30 border border-gray-700/50 rounded-lg text-white placeholder-gray-400 focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 transition-all duration-300 text-sm"
-                      placeholder="Project Discussion"
-                    />
-                  </div>
-
-                  <div class="form-group">
-                    <label
-                      for="message"
-                      class="block text-white font-medium mb-2 text-sm"
-                      >Message</label
-                    >
-                    <textarea
-                      id="message"
-                      name="message"
-                      rows="5"
-                      required
-                      class="w-full px-3 py-3 bg-gray-800/30 border border-gray-700/50 rounded-lg text-white placeholder-gray-400 focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/20 transition-all duration-300 text-sm resize-none"
-                      placeholder="Tell me about your project..."
-                    ></textarea>
-                  </div>
-
-                  <div class="flex items-center justify-between">
-                    <button
-                      type="submit"
-                      class="bg-purple-600 hover:bg-purple-700 text-white font-medium px-6 py-3 rounded-lg transition-all duration-300 flex items-center space-x-2 text-sm"
-                    >
-                      <svg
-                        class="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
-                          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-                        ></path>
-                      </svg>
-                      <span>Send Message</span>
-                    </button>
-                    <div id="formMsg" class="text-xs"></div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="bg-black border-t border-gray-800/30 py-12">
+    <section id="contact" class="py-20 relative bg-black">
       <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center space-y-4">
-          <div class="text-xl font-bold">
+        <div class="mb-16 section-hidden animate-intro-bottom text-center">
+          <h2 class="text-4xl lg:text-5xl font-bold mb-6 text-white">
+            Let's <span class="text-purple-400">Connect</span>
+          </h2>
+          <p class="text-gray-400 text-lg max-w-2xl mx-auto">
+            Siap untuk berkolaborasi? Mari diskusikan proyek Anda
+          </p>
+        </div>
+
+        <!-- Contact Grid -->
+        <div
+          class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 section-hidden animate-intro-bottom animate-delay-1"
+        >
+          <!-- Email Contact -->
+          <div class="group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-purple-600/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <svg
+                    class="w-8 h-8 text-purple-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-purple-400 transition-colors"
+              >
+                Email
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Respon dalam 24 jam
+              </p>
+            </div>
+            <a
+              href="mailto:dhamzk026@gmail.com"
+              class="text-purple-400 hover:text-purple-300 transition-colors font-medium"
+            >
+              dhamzk026@gmail.com
+            </a>
+          </div>
+
+          <!-- LinkedIn -->
+          <div class="group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <svg
+                    class="w-8 h-8 text-blue-400"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-blue-400 transition-colors"
+              >
+                LinkedIn
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Professional network
+              </p>
+            </div>
+            <a
+              href="https://www.linkedin.com/in/dhama-shidqi-putra-12897232a"
+              target="_blank"
+              class="text-blue-400 hover:text-blue-300 transition-colors font-medium"
+            >
+              @dhama-shidqi-putra
+            </a>
+          </div>
+
+          <!-- GitHub -->
+          <div class="group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-gray-500/20 to-gray-600/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <svg
+                    class="w-8 h-8 text-gray-400"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-gray-300 transition-colors"
+              >
+                GitHub
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Open source projects
+              </p>
+            </div>
+            <a
+              href="https://github.com/DHAMA29"
+              target="_blank"
+              class="text-gray-400 hover:text-gray-300 transition-colors font-medium"
+            >
+              @DHAMA29
+            </a>
+          </div>
+
+          <!-- Instagram -->
+          <div class="group text-center">
+            <div class="mb-6">
+              <div
+                class="w-20 h-20 mx-auto flex items-center justify-center mb-6"
+              >
+                <div
+                  class="w-16 h-16 bg-gradient-to-br from-pink-500/20 to-pink-600/10 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
+                >
+                  <svg
+                    class="w-8 h-8 text-pink-400"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                    />
+                  </svg>
+                </div>
+              </div>
+              <h3
+                class="text-xl font-bold text-white mb-4 group-hover:text-pink-400 transition-colors"
+              >
+                Instagram
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed mb-4">
+                Personal updates
+              </p>
+            </div>
+            <a
+              href="https://instagram.com/dhamzk_"
+              target="_blank"
+              class="text-pink-400 hover:text-pink-300 transition-colors font-medium"
+            >
+              @dhamzk_
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer Content -->
+        <div
+          class="mt-20 pt-12 border-t border-gray-800/30 text-center space-y-6"
+        >
+          <div class="text-2xl font-bold">
             <span class="text-white">Dhama</span
             ><span class="text-purple-400">.</span>
           </div>
@@ -1376,44 +1401,9 @@
           <p class="text-gray-500 text-sm">
             Built with passion using modern web technologies
           </p>
-
-          <div class="flex justify-center space-x-4 pt-4">
-            <a
-              href="https://github.com/DHAMA29"
-              target="_blank"
-              class="w-10 h-10 bg-gray-900 text-gray-400 hover:bg-purple-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"
-                />
-              </svg>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dhama-shidqi-putra-12897232a"
-              target="_blank"
-              class="w-10 h-10 bg-gray-900 text-gray-400 hover:bg-purple-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"
-                />
-              </svg>
-            </a>
-            <a
-              href="mailto:dhamzk026@gmail.com"
-              class="w-10 h-10 bg-gray-900 text-gray-400 hover:bg-purple-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300"
-            >
-              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                <path
-                  d="M12 12.713l-11.985-9.713h23.971l-11.986 9.713zm-5.425-1.822l-6.575-5.329v12.501l6.575-7.172zm10.85 0l6.575 7.172v-12.501l-6.575 5.329zm-1.557 1.261l-3.868 3.135-3.868-3.135-8.11 8.848h23.956l-8.11-8.848z"
-                />
-              </svg>
-            </a>
-          </div>
         </div>
       </div>
-    </footer>
+    </section>
 
     <script src="script.js"></script>
   </body>

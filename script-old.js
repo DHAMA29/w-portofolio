@@ -30,6 +30,13 @@ const createIntersectionObserver = () => {
               animateSkillBars();
             }, 800); // Wait for intro animation to complete
           }
+
+          // If this is the experience section, trigger timeline animations
+          if (sectionId === "experience") {
+            setTimeout(() => {
+              animateExperienceItems();
+            }, 600);
+          }
         }
       }
     });
@@ -86,10 +93,54 @@ function animateSkillBars() {
   });
 }
 
+// Experience timeline animation
+function animateExperienceItems() {
+  const experienceItems = document.querySelectorAll('#experience .animate-fade-in-left');
+  
+  experienceItems.forEach((item, index) => {
+    setTimeout(() => {
+      item.style.opacity = '1';
+      item.style.transform = 'translateX(0)';
+    }, index * 200);
+  });
+}
+
 // Initialize page intro animations when DOM is loaded
 document.addEventListener("DOMContentLoaded", () => {
   createIntersectionObserver();
+  initializeSmoothScroll();
 });
+
+// Smooth scroll for navigation links
+function initializeSmoothScroll() {
+  const navLinks = document.querySelectorAll('a[href^="#"]');
+  
+  navLinks.forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      const targetId = this.getAttribute('href');
+      const targetSection = document.querySelector(targetId);
+      
+      if (targetSection) {
+        const headerOffset = 80; // Account for fixed header
+        const elementPosition = targetSection.offsetTop;
+        const offsetPosition = elementPosition - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Close mobile menu if open
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+          mobileMenu.classList.add('hidden');
+        }
+      }
+    });
+  });
+}
 
 // Mobile navigation toggle
 const mobileMenuBtn = document.getElementById("mobile-menu-btn");
@@ -114,9 +165,9 @@ const typingText = document.getElementById("typing-text");
 if (typingText) {
   const texts = [
     "Dhama Shidqi Putra",
-    "AI & Flutter Developer",
+    "AI & Market Eunthusiast",
     "AI Problem Solver",
-    "AI Prompt Engineer",
+    "AI Prompter Engineer",
     "Technology Enthusiast",
   ];
 
@@ -414,7 +465,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     card.addEventListener("mouseleave", () => {
-      card.style.transform = "translateY(0) scale(1)";
+      if (card.querySelector(".border-purple-500")) {
+        // Featured card maintains elevation
+        card.style.transform = "translateY(-4px) scale(1)";
+      } else {
+        card.style.transform = "translateY(0) scale(1)";
+      }
       card.style.boxShadow = "";
     });
   });
@@ -575,11 +631,23 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("load", () => {
     setTimeout(() => {
       document.body.classList.remove("loading");
-    }, 500);
+    }, 300);
   });
 
-  // Initialize Skills Carousel
-  initializeSkillsCarousel();
+  // Initialize basic animations for skills cards
+  const skillCards = document.querySelectorAll(".skill-card");
+  skillCards.forEach((card, index) => {
+    // Initial state
+    card.style.opacity = "0";
+    card.style.transform = "translateY(30px)";
+    card.style.transition = "all 0.6s ease";
+    
+    // Animate in with stagger
+    setTimeout(() => {
+      card.style.opacity = "1";
+      card.style.transform = "translateY(0)";
+    }, index * 150);
+  });
 });
 
 // Improved Skills Selection with Smooth Animations
@@ -592,7 +660,7 @@ function initializeSkillsCarousel() {
   if (!prevBtn || !nextBtn || dots.length === 0 || skillCards.length === 0)
     return;
 
-  let currentIndex = 0;
+  let currentIndex = 1; // Start with Web Development featured
   let isAnimating = false;
 
   function updateSkills() {
@@ -603,39 +671,96 @@ function initializeSkillsCarousel() {
       const serviceCard = card.querySelector(".skill-service-card");
       const cardDiv = serviceCard.querySelector("div");
 
-      // Simple equal treatment for all cards
-      serviceCard.style.transform = "scale(1) translateY(0)";
-      serviceCard.style.zIndex = "1";
+      // Remove all existing classes and reset
+      card.classList.remove("featured");
+      serviceCard.style.transform = "";
+      serviceCard.style.zIndex = "";
 
-      // Normal styling for all cards
-      cardDiv.className =
-        "bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-3xl p-6 md:p-8 text-center border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 backdrop-blur-sm h-full flex flex-col justify-between";
+      if (index === currentIndex) {
+        // Featured card
+        setTimeout(() => {
+          card.classList.add("featured");
 
-      // Update title
-      const title = cardDiv.querySelector("h3");
-      if (title) {
-        title.className =
-          "text-lg md:text-xl font-bold text-white mb-3 md:mb-4 group-hover:text-purple-400 transition-colors duration-300";
-      }
+          // Enhanced featured styling
+          serviceCard.style.transform = "scale(1.05) translateY(-8px)";
+          serviceCard.style.zIndex = "10";
 
-      // Update description
-      const desc = cardDiv.querySelector("p");
-      if (desc) {
-        desc.className =
-          "text-sm md:text-base text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-300";
-      }
+          // Update card styling
+          cardDiv.className =
+            "bg-gradient-to-br from-purple-900/70 to-blue-900/70 rounded-3xl p-8 md:p-10 text-center border-2 border-purple-500/80 shadow-2xl shadow-purple-500/30 backdrop-blur-md h-full flex flex-col justify-between transform scale-105 md:scale-110";
 
-      // Update image container
-      const imageContainer = cardDiv.querySelector(".w-36, .w-32");
-      if (imageContainer) {
-        imageContainer.className =
-          "w-32 h-32 mx-auto bg-gradient-to-br from-purple-600/15 to-blue-600/15 rounded-3xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-105 shadow-lg";
-      }
+          // Update title
+          const title = cardDiv.querySelector("h3");
+          if (title) {
+            title.className =
+              "text-xl md:text-2xl font-bold text-white mb-3 md:mb-4";
+          }
 
-      // Remove badge if exists
-      const badge = cardDiv.querySelector(".absolute.-top-3");
-      if (badge) {
-        badge.remove();
+          // Update description
+          const desc = cardDiv.querySelector("p");
+          if (desc) {
+            desc.className =
+              "text-sm md:text-base text-gray-200 leading-relaxed";
+          }
+
+          // Update image container
+          const imageContainer = cardDiv.querySelector(".w-36, .w-32");
+          if (imageContainer) {
+            imageContainer.className =
+              "w-36 h-36 mx-auto bg-gradient-to-br from-purple-600/25 to-blue-600/25 rounded-3xl flex items-center justify-center mb-6 shadow-xl transition-all duration-500 group-hover:scale-105";
+          }
+
+          // Add badge if not exists
+          const badgeContainer = cardDiv.querySelector(".flex-shrink-0.mb-8");
+          if (
+            badgeContainer &&
+            !badgeContainer.querySelector(".absolute.-top-3")
+          ) {
+            const badge = document.createElement("div");
+            badge.className =
+              "absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-blue-600 text-white text-sm px-4 py-2 rounded-full shadow-lg";
+            badge.innerHTML = "✨ Featured";
+            badgeContainer.style.position = "relative";
+            badgeContainer.appendChild(badge);
+          }
+        }, 50);
+      } else {
+        // Normal cards
+        setTimeout(() => {
+          serviceCard.style.transform = "scale(1) translateY(0)";
+          serviceCard.style.zIndex = "1";
+
+          // Normal styling
+          cardDiv.className =
+            "bg-gradient-to-br from-gray-900/90 to-gray-800/90 rounded-3xl p-6 md:p-8 text-center border border-gray-700/50 hover:border-purple-500/50 transition-all duration-500 backdrop-blur-sm h-full flex flex-col justify-between";
+
+          // Update title
+          const title = cardDiv.querySelector("h3");
+          if (title) {
+            title.className =
+              "text-lg md:text-xl font-bold text-white mb-3 md:mb-4 group-hover:text-purple-400 transition-colors duration-300";
+          }
+
+          // Update description
+          const desc = cardDiv.querySelector("p");
+          if (desc) {
+            desc.className =
+              "text-sm md:text-base text-gray-400 leading-relaxed transition-colors duration-300 group-hover:text-gray-300";
+          }
+
+          // Update image container
+          const imageContainer = cardDiv.querySelector(".w-36, .w-32");
+          if (imageContainer) {
+            imageContainer.className =
+              "w-32 h-32 mx-auto bg-gradient-to-br from-purple-600/15 to-blue-600/15 rounded-3xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-105 shadow-lg";
+          }
+
+          // Remove badge
+          const badge = cardDiv.querySelector(".absolute.-top-3");
+          if (badge) {
+            badge.remove();
+          }
+        }, 50);
       }
     });
 
